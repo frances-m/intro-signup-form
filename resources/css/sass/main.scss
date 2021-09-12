@@ -7,7 +7,282 @@ html {
   font-size: 62.5%;
 }
 
-body {
+* {
   font-family: Poppins, sans-serif;
   font-size: 1.6rem;
+  color: white;
+}
+
+body {
+  min-height: 100vh;
+  background-color: $red;
+  background-image: url(../images/bg-intro-mobile.png);
+  background-repeat: repeat-y;
+  background-size: cover;
+  background-position: center;
+}
+
+main {
+  margin: 0 auto;
+  width: 32.64rem;
+  text-align: center;
+
+  .main-text {
+    padding-top: 9.15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      font-size: 2.75rem;
+      line-height: 3.5rem;
+      font-weight: 700;
+    }
+
+    p {
+      padding-top: 2.4rem;
+      line-height: 2.6rem;
+      font-weight: 500;
+      width: 96%;
+    }
+  }
+
+  .form-container {
+    margin-top: 6.2rem;
+
+    .info-container {
+      background-color: $blue;
+      height: 8.8rem;
+      width: 100%;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 .8rem $dark-blue-shadow;
+
+      p {
+        width: 67%;
+        font-size: 1.5rem;
+        font-weight: 400;
+        line-height: 2.4rem;
+
+        strong {
+          font-weight: 600;
+        }
+      }
+    }
+
+    form {
+      margin-top: 2.4rem;
+      padding-top: 2.5rem;
+      background-color: white;
+      border-radius: 1rem;
+      box-shadow: 0 .8rem $dark-blue-shadow;
+
+      input {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 1.55rem;
+        width: 85.5%;
+        height: 5.6rem;
+        border-radius: .5rem;
+        border: 1px solid $dark-blue-shadow;
+        padding-left: 1.8rem;
+        font-size: 1.43rem;
+        font-weight: 600;
+        color: black;
+        caret-color: $blue;
+
+        &::placeholder {
+          color: $dark-blue;
+        }
+
+        &:focus {
+          outline: .15rem solid $blue;
+        }
+      }
+
+      button {
+        width: 85.5%;
+        height: 5.2rem;
+        background-color: $green;
+        border-radius: .5rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        box-shadow: 0 .4rem $green-border;
+        border-style: hidden;
+        padding-top: 1rem;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &:focus-visible {
+          outline: .2rem solid $blue;
+        }
+
+        &:active {
+          opacity: .7;
+        }
+      }
+
+      p {
+        color: $gray-blue;
+        font-size: 1.1rem;
+        width: 74%;
+        margin: 0 auto;
+        margin-top: 1.5rem;
+        padding-bottom: 2.4rem;
+        line-height: 2rem;
+
+        a {
+          color: $red;
+          font-size: 1.1rem;
+          text-decoration: none;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  margin: 2rem auto;
+
+  .attribution {
+    text-align: center;
+    font-size: 1.3rem;
+    margin: 0 auto;
+    width: 90%;
+
+    a {
+      font-size: 1.4rem;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
+}
+
+.error-icon {
+  display: none;
+  position: relative;
+  left: 80%;
+  top: -5.5rem;
+}
+
+.error-text {
+  display: none;
+  position: relative;
+  color: $red !important;
+  font-style: italic;
+  height: 0;
+  top: -.7rem;
+  margin-top: -3rem;
+  text-align: right;
+  left: 1.4rem;
+  font-size: 1rem;
+
+}
+
+.invalid {
+  outline: .16rem solid $red;
+  color: $red !important;
+
+  & + .error-icon {
+    display: block;
+
+    & + .error-text {
+      display: block !important;
+      font-style: italic;
+      height: 0;
+      top: -.7rem;
+      margin-top: -3rem;
+      text-align: right;
+      left: 1.4rem;
+      font-size: 1rem;
+    }
+  }
+}
+
+
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 340px) {
+  main {
+    width: 29.6rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    background-image: url(../images/bg-intro-desktop.png);
+  }
+
+  main {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 56rem);
+    grid-template-rows: 1fr;
+
+    .main-text {
+      grid-column: 1 / span 1;
+      grid-row: 1 / span 1;
+      text-align: left;
+      padding-top: 30rem;
+      margin: 0;
+      margin-left: 0.6rem;
+
+      h1 {
+        font-size: 4.92rem;
+        line-height: 5.5rem;
+      }
+
+      p {
+        width: auto;
+      }
+    }
+
+    .form-container {
+      grid-column: 2 / span 1;
+      grid-row: 1 / span 1;
+      width: 54rem;
+      margin-top: 0;
+      padding-top: 12rem;
+      margin-left: 1.5rem;
+
+      .info-container {
+        height: 7rem;
+      }
+
+      form {
+        padding-top: 4.5rem;
+
+        input {
+          padding-left: 3.3rem;
+        }
+
+        button {
+          letter-spacing: 0.04rem;
+        }
+      }
+    }
+  }
+
+  .error-icon {
+    left: 85%;
+  }
+
+  .error-text {
+    left: 2.4rem !important;
+  }
 }
