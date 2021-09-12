@@ -19,6 +19,12 @@ form.addEventListener('submit', function (event) {
       lastName.classList.add('invalid');
     }
     if (!email.validity.valid) {
+      if (email.validity.valueMissing) {
+        email.nextElementSibling.nextElementSibling.innerHTML = 'Email cannot be empty';
+      } else {
+        email.nextElementSibling.nextElementSibling.innerHTML = 'Looks like this is not an email';
+      }
+
       email.classList.add('invalid');
     }
     if (!password.validity.valid) {
